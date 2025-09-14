@@ -1,14 +1,8 @@
 'use client';
 
-import { Metadata } from 'next';
 import Link from 'next/link';
 import { Award, Briefcase, Gift, Heart, Home, Martini, Utensils, Wifi, Smartphone, FileText, MapPin, Calendar, MessageSquare, Store, Link as LinkIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-export const metadata: Metadata = {
-  title: 'Creative QR Code Ideas | QRcodeDunya',
-  description: 'Discover creative and practical ideas for using QR codes in your business, home, and personal life. Simplify tasks, engage customers, and get inspired.',
-};
 
 interface Idea {
     title: string;
