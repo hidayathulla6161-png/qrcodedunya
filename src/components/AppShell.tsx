@@ -14,7 +14,7 @@ import { Label } from './ui/label';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
 import { Separator } from './ui/separator';
-import { Share2, Download, Loader2, Link as LinkIcon, Rss, Facebook, Twitter, Instagram, Linkedin, FileText, Store, Smartphone, Calendar, MessageSquare, MapPin, Ban, Square, Image as ImageIcon, Utensils, Coffee, Bike, Car, Laptop, Heart, Wifi, Mail, Upload, Youtube, ScanLine, ChevronDown, Contact, Shield, ShieldCheck, ShieldAlert, ShieldPlus, Palette, Shapes, Frame as FrameIcon, Star, RotateCcw, File, FileType, ChevronsUpDown, Eye, EyeOff, HelpCircle, FilePenLine } from 'lucide-react';
+import { Share2, Download, Loader2, Link as LinkIcon, Rss, Facebook, Twitter, Instagram, Linkedin, FileText, Store, Smartphone, Calendar, MessageSquare, MapPin, Ban, Square, Image as ImageIcon, Utensils, Coffee, Bike, Car, Laptop, Heart, Wifi, Mail, Upload, Youtube, ScanLine, ChevronDown, Contact, Shield, ShieldCheck, ShieldAlert, ShieldPlus, Palette, Shapes, Frame as FrameIcon, Star, RotateCcw, File, FileType, ChevronsUpDown, Eye, EyeOff, HelpCircle, FilePenLine, QrCode } from 'lucide-react';
 import QRCodeDisplay, { FrameStyle, QrStyle, ErrorCorrectionLevel } from './QRCodeDisplay';
 import { useToast } from '../hooks/use-toast';
 import { importVCardData } from '../lib/actions';
@@ -23,7 +23,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 import { cn } from '../lib/utils';
 import { renderToString } from 'react-dom/server';
-import { QrCodeDunyaLogo } from './icons/QrCodeDunyaLogo';
 import Image from 'next/image';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu';
 import qrcode from 'qrcode';
@@ -89,13 +88,7 @@ const templates: Template[] = [
 
 
 const getIconAsBase64 = (iconName: string): string | null => {
-    let iconElement: React.ReactElement | null = null;
-
-    if (iconName === 'qrcodedunya') {
-      iconElement = <QrCodeDunyaLogo className="text-primary" />;
-    } else {
-      iconElement = iconMap[iconName];
-    }
+    const iconElement = iconMap[iconName];
    
     if (iconElement) {
         try {
@@ -652,7 +645,7 @@ export default function AppShell() {
             </div>
             <div className="space-y-1">
               <Label htmlFor="appStoreGoogle">Google Play Store URL</Label>
-              <Input id="appStoreGoogle" type="url" placeholder="https://play.google.com/..." value={appStore.google} onChange={(e) => setAppStore({...appStore, google: e.target.value})} />
+              <Input id="appStoreGoogle" type="url" placeholder="https://play.google.com/..." value={(e) => setAppStore({...appStore, google: e.target.value})} />
             </div>
           </div>
         );
@@ -668,7 +661,7 @@ export default function AppShell() {
       <div className="flex flex-col bg-background">
         <header className="flex h-16 shrink-0 items-center justify-between border-b px-6">
           <div className="flex items-center gap-3">
-            <QrCodeDunyaLogo className="h-8 w-8 text-primary" />
+            <QrCode className="h-8 w-8 text-primary" />
             <h1 className="text-xl font-bold tracking-tighter">QRcodeDunya</h1>
           </div>
           <Dialog>
