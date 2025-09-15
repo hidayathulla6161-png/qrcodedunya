@@ -2,9 +2,9 @@
 
 import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import AppShell from '@/components/AppShell';
-import RedirectHandler from '@/components/RedirectHandler';
-import { QrCodeDunyaLogo } from '@/components/icons/QrCodeDunyaLogo';
+import AppShell from '../components/AppShell';
+import RedirectHandler from '../components/RedirectHandler';
+import { QrCodeDunyaLogo } from '../components/icons/QrCodeDunyaLogo';
 
 function PageContent() {
   const searchParams = useSearchParams();
