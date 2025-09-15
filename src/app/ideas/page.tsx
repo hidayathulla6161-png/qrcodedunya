@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Award, Briefcase, Gift, Heart, Home, Martini, Utensils, Wifi, Smartphone, FileText, MapPin, Calendar, MessageSquare, Store, Link as LinkIcon } from 'lucide-react';
-import { Button } from '../../components/ui/button';
+import { Button } from '@/components/ui/button';
 
 interface Idea {
     title: string;
